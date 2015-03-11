@@ -22,4 +22,9 @@ class Currency
     {
         return $this->rate;
     }
+
+    public function equals(Currency $currency)
+    {
+        return $currency->getRate()->getValue() === $this->getRate()->getValue();
+    }
 }
