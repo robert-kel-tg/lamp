@@ -1,6 +1,6 @@
 
 1. Run git clone https://github.com/robertke/lamp.git
-2. cd lamp/
+2. <code>cd lamp/</code>
 3. vagrant up
 4. vagrant ssh
 5. cd /var/www/html/lamp.dev
