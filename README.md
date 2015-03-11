@@ -1,4 +1,4 @@
-
+# Run Vagrant Box
 1. Run <code>git clone https://github.com/robertke/lamp.git</code>
 2. <code>cd lamp/</code>
 3. <code>vagrant up</code>
