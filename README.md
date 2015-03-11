@@ -1,9 +1,9 @@
 
-1. Run git clone https://github.com/robertke/lamp.git
+1. Run <code>git clone https://github.com/robertke/lamp.git</code>
 2. <code>cd lamp/</code>
-3. vagrant up
-4. vagrant ssh
-5. cd /var/www/html/lamp.dev
-6. composer update
+3. <code>vagrant up</code>
+4. <code>vagrant ssh</code>
+5. <code>cd /var/www/html/lamp.dev</code>
+6. <code>composer update</code>
 7. Change document root from /var/www/html/lamp.dev to /var/www/html/lamp.dev/web)
 8. Check lamp.dev/ on browser
