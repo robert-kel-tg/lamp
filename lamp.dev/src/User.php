@@ -15,6 +15,10 @@ class User implements UserComparableInterface
 
     private $userStatus;
 
+    private $createdAt;
+
+    private $activatedAt;
+
     function __construct($name, Money $money, \DateTime $dateTime)
     {
         $this->name = $name;
@@ -22,11 +26,44 @@ class User implements UserComparableInterface
         $this->today = new \DateTime('today');
         $this->dateTime = $dateTime;
         $this->age = $this->getAge();
+        $this->inactivate();
+        $this->createdAt(new \DateTimeImmutable());
     }
 
     public function setStatus(UserStatus $userStatus)
     {
         $this->userStatus = $userStatus;
+    }
+
+    public function activate()
+    {
+        $this->setStatus(
+            UserStatus::activated()
+        );
+        $this->activatedAt(new \DateTimeImmutable());
+    }
+
+    public function inactivate()
+    {
+        $this->setStatus(
+            UserStatus::inactive()
+        );
+        $this->activatedAt = null;
+    }
+
+    public function isActivated()
+    {
+        return $this->userStatus->equalsTo(new UserStatus(UserStatus::activated()));
+    }
+
+    private function createdAt(\DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    private function activatedAt(\DateTimeImmutable $activatedAt)
+    {
+        $this->activatedAt = $activatedAt;
     }
 
     public function getStatus()
