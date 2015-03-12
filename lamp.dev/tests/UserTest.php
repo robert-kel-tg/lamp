@@ -23,8 +23,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
     public function testUserStatus()
     {
         $user = new User('Petras', new Money(8, new Currency('EUR', new Rate(1))), new \DateTime('2015-01-01'));
-        $user->setStatus(new UserStatus(UserStatus::PUBLISHED));
-        $this->assertEquals(0x10, $user->getStatus());
+        $user->setStatus(new UserStatus(UserStatus::inactive()));
+        $this->assertFalse($user->isActivated());
     }
 
     public function testUserSetMoney()
