@@ -3,18 +3,33 @@ namespace Src;
 
 class UserStatus
 {
-    const PUBLISHED = 0x10;
-    const UNPUBLISHED = 0x11;
+    const ACTIVATED = 0x10;
+    const INACTIVE = 0x11;
 
-    private $type;
+    private $status;
 
-    public function __construct($type)
+    public function __construct($status)
     {
-        $this->type = $type;
+        $this->status = $status;
     }
 
-    public function getType()
+    public static function activated()
     {
-        return $this->type;
+        return new self(self::ACTIVATED);
+    }
+
+    public static function inactive()
+    {
+        return new self(self::INACTIVE);
+    }
+
+    public function equalsTo(self $status)
+    {
+        return $this->status === $status->getStatus();
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
